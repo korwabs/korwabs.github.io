@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  output: "export",
+  trailingSlash: true,
+  basePath: "/korwabs.github.io",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
