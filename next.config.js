@@ -2,7 +2,7 @@
 const nextConfig = {
   output: "export",
   trailingSlash: true,
-  basePath: "",
+  basePath: "/korwabs.github.io",
 };
 
 module.exports = nextConfig;
