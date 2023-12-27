@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { Link } from "react-scroll";
 
 const Header = () => {
   const [isScroll, setIsScroll] = useState(false);
@@ -62,36 +63,46 @@ const Header = () => {
         >
           <ul className="list-reset lg:flex justify-end flex-1 items-center">
             <li className="mr-3">
-              <a
-                className="inline-block py-2 px-4 text-black font-bold no-underline"
-                href="#"
-              >
-                Active
-              </a>
+              <Link to="main" smooth duration={500}>
+                <a
+                  className="inline-block py-2 px-4 text-black font-bold no-underline"
+                  href="#"
+                >
+                  Main
+                </a>
+              </Link>
             </li>
             <li className="mr-3">
-              <a
-                className="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="#"
-              >
-                link
-              </a>
+              <Link to="feature" smooth duration={500}>
+                <a
+                  className="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                  href="#"
+                >
+                  Feature
+                </a>
+              </Link>
             </li>
             <li className="mr-3">
-              <a
-                className="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="#"
-              >
-                link
-              </a>
+              <Link to="skills" smooth duration={500}>
+                <a
+                  className="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                  href="#"
+                >
+                  Skills
+                </a>
+              </Link>
+            </li>
+            <li className="mr-3">
+              <Link to="products" smooth duration={500}>
+                <a
+                  className="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
+                  href="#"
+                >
+                  Products
+                </a>
+              </Link>
             </li>
           </ul>
-          {/* <button
-            id="navAction"
-            className="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
-          >
-            Action
-          </button> */}
         </div>
       </div>
       <hr className="border-b border-gray-100 opacity-25 my-0 py-0" />
