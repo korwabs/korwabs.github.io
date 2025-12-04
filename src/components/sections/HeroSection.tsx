@@ -139,7 +139,7 @@ const HeroSection = ({ heroOpacity, heroScale }: HeroSectionProps) => {
               transition={{ duration: 0.5, delay: 0.2 }}
               whileHover={{
                 scale: 1.05,
-                boxShadow: "0 0 20px rgba(99, 102, 241, 0.3)",
+                boxShadow: "0 0 20px rgba(20, 145, 155, 0.3)",
               }}
             >
               <motion.span

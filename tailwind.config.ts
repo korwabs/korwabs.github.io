@@ -24,44 +24,47 @@ const config: Config = {
     },
     extend: {
       colors: {
+        // Primary: Teal (로고 메인 컬러)
         primary: {
-          50: "#eef2ff",
-          100: "#e0e7ff",
-          200: "#c7d2fe",
-          300: "#a5b4fc",
-          400: "#818cf8",
-          500: "#6366f1",
-          600: "#4f46e5",
-          700: "#4338ca",
-          800: "#3730a3",
-          900: "#312e81",
-          950: "#1e1b4b",
+          50: "#f0fdfa",
+          100: "#ccfbf1",
+          200: "#99f6e4",
+          300: "#5eead4",
+          400: "#2dd4bf",
+          500: "#14919B",  // 로고 메인 틸
+          600: "#0D7377",  // 로고 진한 틸
+          700: "#0A5C5F",
+          800: "#084547",
+          900: "#063131",
+          950: "#042121",
         },
+        // Secondary: Cyan (로고 밝은 시안)
         secondary: {
-          50: "#f5f3ff",
-          100: "#ede9fe",
-          200: "#ddd6fe",
-          300: "#c4b5fd",
-          400: "#a78bfa",
-          500: "#8b5cf6",
-          600: "#7c3aed",
-          700: "#6d28d9",
-          800: "#5b21b6",
-          900: "#4c1d95",
-          950: "#2e1065",
-        },
-        accent: {
           50: "#ecfeff",
           100: "#cffafe",
           200: "#a5f3fc",
           300: "#67e8f9",
-          400: "#22d3ee",
-          500: "#06b6d4",
-          600: "#0891b2",
-          700: "#0e7490",
-          800: "#155e75",
-          900: "#164e63",
-          950: "#083344",
+          400: "#5DD9E3",  // 로고 밝은 시안
+          500: "#40C4CE",  // 로고 시안
+          600: "#2BA8B3",
+          700: "#1F8A94",
+          800: "#176C75",
+          900: "#115156",
+          950: "#0B3538",
+        },
+        // Accent: Silver Gray (로고 실버)
+        accent: {
+          50: "#f8fafa",
+          100: "#f0f4f4",
+          200: "#e0e6e7",
+          300: "#c8d2d4",
+          400: "#B8C4C6",  // 로고 밝은 실버
+          500: "#8B9A9C",  // 로고 실버
+          600: "#6B7A7C",
+          700: "#525E60",
+          800: "#3C4546",
+          900: "#2A3032",
+          950: "#1A1F20",
         },
         dark: {
           50: "#f8fafc",
@@ -108,10 +111,10 @@ const config: Config = {
         },
         "pulse-glow": {
           "0%, 100%": {
-            boxShadow: "0 0 20px rgba(99, 102, 241, 0.5)",
+            boxShadow: "0 0 20px rgba(20, 145, 155, 0.5)",
           },
           "50%": {
-            boxShadow: "0 0 40px rgba(99, 102, 241, 0.8), 0 0 60px rgba(139, 92, 246, 0.4)",
+            boxShadow: "0 0 40px rgba(20, 145, 155, 0.8), 0 0 60px rgba(64, 196, 206, 0.4)",
           },
         },
         "gradient-y": {
@@ -180,14 +183,14 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "hero-gradient": "linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%)",
-        "card-gradient": "linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)",
-        "glow-gradient": "linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4, #6366f1)",
+        "hero-gradient": "linear-gradient(135deg, #042121 0%, #063131 50%, #0D7377 100%)",
+        "card-gradient": "linear-gradient(135deg, rgba(20, 145, 155, 0.1) 0%, rgba(64, 196, 206, 0.1) 100%)",
+        "glow-gradient": "linear-gradient(90deg, #14919B, #40C4CE, #5DD9E3, #14919B)",
       },
       boxShadow: {
-        glow: "0 0 20px rgba(99, 102, 241, 0.5)",
-        "glow-lg": "0 0 40px rgba(99, 102, 241, 0.5), 0 0 80px rgba(139, 92, 246, 0.3)",
-        "glow-accent": "0 0 20px rgba(6, 182, 212, 0.5)",
+        glow: "0 0 20px rgba(20, 145, 155, 0.5)",
+        "glow-lg": "0 0 40px rgba(20, 145, 155, 0.5), 0 0 80px rgba(64, 196, 206, 0.3)",
+        "glow-accent": "0 0 20px rgba(139, 154, 156, 0.5)",
         "card-dark": "0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)",
       },
       backdropBlur: {

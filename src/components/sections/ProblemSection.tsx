@@ -85,7 +85,7 @@ const ProblemCard = ({ emoji, title, description, gradient, index }: ProblemCard
       <motion.div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{
-          background: `radial-gradient(circle at ${(x.get() + 0.5) * 100}% ${(y.get() + 0.5) * 100}%, rgba(99, 102, 241, 0.1), transparent 50%)`,
+          background: `radial-gradient(circle at ${(x.get() + 0.5) * 100}% ${(y.get() + 0.5) * 100}%, rgba(20, 145, 155, 0.1), transparent 50%)`,
         }}
       />
 
@@ -133,10 +133,10 @@ const ProblemSection = () => {
           className="absolute inset-0 opacity-30"
           animate={{
             background: [
-              "radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 50%, rgba(20, 145, 155, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 80% 50%, rgba(64, 196, 206, 0.1) 0%, transparent 50%)",
               "radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%)",
-              "radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 50%, rgba(20, 145, 155, 0.1) 0%, transparent 50%)",
             ],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}

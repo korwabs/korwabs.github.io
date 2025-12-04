@@ -41,7 +41,7 @@ const CTASection = () => {
             onMouseLeave={() => setIsHovered(false)}
             className="relative rounded-3xl p-12 md:p-16 text-center overflow-hidden"
             style={{
-              background: "#0f172a",
+              background: "rgba(4, 33, 33, 0.6)",
             }}
           >
             {/* Static gradient border */}
@@ -49,7 +49,7 @@ const CTASection = () => {
               className="absolute inset-0 rounded-3xl"
               style={{
                 padding: "2px",
-                background: "linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4, #8b5cf6, #6366f1)",
+                background: "linear-gradient(135deg, #0D7377, #14919B, #40C4CE, #14919B, #0D7377)",
                 backgroundSize: "400% 400%",
                 animation: "gradient-rotate 8s linear infinite",
                 WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
@@ -63,7 +63,7 @@ const CTASection = () => {
               className="absolute inset-0 opacity-0 transition-opacity duration-300 pointer-events-none"
               style={{
                 opacity: isHovered ? 0.6 : 0,
-                background: `radial-gradient(600px circle at ${spotlightX.get()} ${spotlightY.get()}, rgba(99, 102, 241, 0.15), transparent 40%)`,
+                background: `radial-gradient(600px circle at ${spotlightX.get()} ${spotlightY.get()}, rgba(20, 145, 155, 0.15), transparent 40%)`,
               }}
             />
 

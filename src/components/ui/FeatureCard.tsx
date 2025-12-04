@@ -70,7 +70,7 @@ const FeatureCard = ({
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{
           background: isHovered
-            ? `radial-gradient(600px circle at ${x.get() * 100 + 50}% ${y.get() * 100 + 50}%, rgba(99, 102, 241, 0.15), transparent 40%)`
+            ? `radial-gradient(600px circle at ${x.get() * 100 + 50}% ${y.get() * 100 + 50}%, rgba(20, 145, 155, 0.15), transparent 40%)`
             : "none",
         }}
       />
@@ -98,7 +98,7 @@ const FeatureCard = ({
       <motion.div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{
-          background: "linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2))",
+          background: "linear-gradient(135deg, rgba(20, 145, 155, 0.2), rgba(64, 196, 206, 0.2))",
           filter: "blur(1px)",
         }}
       />
