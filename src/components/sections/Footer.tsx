@@ -24,6 +24,10 @@ const Footer = () => {
               <br />
               비즈니스의 미래를 함께 만들어갑니다.
             </p>
+            <div className="mt-4 text-dark-500 text-xs space-y-0.5">
+              <p>상호: WABS | 대표자: 최현준</p>
+              <p>사업자 등록번호: 693-86-03384</p>
+            </div>
           </div>
 
           <div>
@@ -112,17 +116,19 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-dark-500 text-sm">
-            © 2024 WABS. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-dark-500 text-sm">
-            <a href="#" className="hover:text-primary-400 transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-primary-400 transition-colors">
-              Terms of Service
-            </a>
+        <div className="border-t border-white/10 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-dark-500 text-sm">
+              © 2025 WABS. All rights reserved.
+            </p>
+            <div className="flex gap-6 text-dark-500 text-sm">
+              <a href="#" className="hover:text-primary-400 transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-primary-400 transition-colors">
+                Terms of Service
+              </a>
+            </div>
           </div>
         </div>
       </div>
