@@ -1,12 +1,24 @@
 "use client";
 
+import Image from "next/image";
+import logo from "@/assets/logo.png";
+
 const Footer = () => {
   return (
     <footer className="py-12 border-t border-white/10">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold gradient-text mb-4">WABS</h3>
+            <div className="flex items-center gap-2 mb-4">
+              <Image
+                src={logo}
+                alt="WABS Logo"
+                width={36}
+                height={36}
+                className="w-9 h-9"
+              />
+              <span className="text-2xl font-bold gradient-text">WABS</span>
+            </div>
             <p className="text-dark-400 text-sm leading-relaxed">
               AI Agent 도입 및 솔루션 개발 전문 기업
               <br />
@@ -53,8 +65,23 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-dark-400 text-sm">
-              <li>wabs@wabs.io</li>
-              <li>서울특별시 강남구</li>
+              <li className="flex items-center gap-2">
+                <svg className="w-4 h-4 text-primary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                wabs@wabs.io
+              </li>
+              <li className="flex items-start gap-2">
+                <svg className="w-4 h-4 text-primary-400 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span>
+                  (10071) 79, Gimpohangang 9-ro,
+                  <br />
+                  Gimpo-si, Gyeonggi-do, Korea
+                </span>
+              </li>
             </ul>
             <div className="flex gap-3 mt-4">
               <a

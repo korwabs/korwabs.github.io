@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isScroll, setIsScroll] = useState(false);
@@ -52,9 +54,13 @@ const Header = () => {
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center gap-2"
               >
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">W</span>
-                </div>
+                <Image
+                  src={logo}
+                  alt="WABS Logo"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                />
                 <span className="text-white font-bold text-xl md:text-2xl">
                   WABS
                 </span>
