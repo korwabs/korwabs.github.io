@@ -523,6 +523,77 @@
   padding-top: 4px;
 }
 
+.project-card__video {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.project-card__video .btn { font-size: 13px; padding: 8px 16px; }
+
+/* ── 비디오 모달 ── */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.video-modal.active { opacity: 1; visibility: visible; }
+
+.video-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+}
+
+.video-modal__content {
+  position: relative;
+  max-width: 900px;
+  width: 90%;
+  border-radius: 16px;
+  overflow: hidden;
+  transform: scale(0.9);
+  transition: transform 0.3s;
+  background: #000;
+}
+
+.video-modal.active .video-modal__content { transform: scale(1); }
+
+.video-modal__content video {
+  width: 100%;
+  display: block;
+}
+
+.video-modal__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.video-modal__close:hover { background: rgba(255, 255, 255, 0.15); }
+
+@media print { .video-modal { display: none; } }
+
 /* ── 프로젝트 카드 미니 ── */
 .project-card-mini {
   padding: 16px 20px;
@@ -1270,6 +1341,12 @@ body::before {
 
   </div>  <div class="project-card__values">    <span class="value-badge">문제가 먼저다</span>
     <span class="value-badge">끝까지 완성한다</span>
+  </div>  <div class="project-card__video">
+    <a href="#"
+   class="btn btn--ghost">  <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">    <polygon points="5 3 19 12 5 21 5 3"/>  </svg>  시연 영상 보기
+</a>
+
+    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/cxp-saas.mp4" hidden></span>
   </div></div>
       <div class="project-card glass-card" data-project="enms" data-domain="에너지/제조">
   <div class="project-card__header">
@@ -1327,6 +1404,12 @@ body::before {
 
   </div>  <div class="project-card__values">    <span class="value-badge">문제가 먼저다</span>
     <span class="value-badge">지속가능하게</span>
+  </div>  <div class="project-card__video">
+    <a href="#"
+   class="btn btn--ghost">  <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">    <polygon points="5 3 19 12 5 21 5 3"/>  </svg>  시연 영상 보기
+</a>
+
+    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/enms.mp4" hidden></span>
   </div></div>
       <div class="project-card glass-card" data-project="harness-monitor" data-domain="AI/DevOps">
   <div class="project-card__header">
@@ -1383,6 +1466,12 @@ body::before {
 
   </div>  <div class="project-card__values">    <span class="value-badge">끝까지 완성한다</span>
     <span class="value-badge">큰 그릇으로 담는다</span>
+  </div>  <div class="project-card__video">
+    <a href="#"
+   class="btn btn--ghost">  <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">    <polygon points="5 3 19 12 5 21 5 3"/>  </svg>  시연 영상 보기
+</a>
+
+    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/harness-monitor.mp4" hidden></span>
   </div></div>
       <div class="project-card glass-card" data-project="meeting-assistant" data-domain="업무자동화">
   <div class="project-card__header">
@@ -1440,6 +1529,12 @@ body::before {
 
   </div>  <div class="project-card__values">    <span class="value-badge">문제가 먼저다</span>
     <span class="value-badge">끝까지 완성한다</span>
+  </div>  <div class="project-card__video">
+    <a href="#"
+   class="btn btn--ghost">  <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">    <polygon points="5 3 19 12 5 21 5 3"/>  </svg>  시연 영상 보기
+</a>
+
+    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/meeting-assistant.mp4" hidden></span>
   </div></div>
       <div class="project-card glass-card" data-project="multi-ai-agent-system" data-domain="AI">
   <div class="project-card__header">
@@ -1497,6 +1592,12 @@ body::before {
 
   </div>  <div class="project-card__values">    <span class="value-badge">큰 그릇으로 담는다</span>
     <span class="value-badge">끝까지 완성한다</span>
+  </div>  <div class="project-card__video">
+    <a href="#"
+   class="btn btn--ghost">  <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">    <polygon points="5 3 19 12 5 21 5 3"/>  </svg>  시연 영상 보기
+</a>
+
+    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/multi-ai-agent.mp4" hidden></span>
   </div></div>
     </div>
   </div>
