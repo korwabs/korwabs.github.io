@@ -2237,7 +2237,7 @@ body::before {
     });
   });
 
-  function openVideoModal(src) {
+  window.openVideoModal = function(src) {
     var modal = document.getElementById('videoModal');
     var video = document.getElementById('modalVideo');
     var source = video.querySelector('source');
@@ -2248,7 +2248,7 @@ body::before {
     document.body.style.overflow = 'hidden';
   }
 
-  function closeVideoModal() {
+  window.closeVideoModal = function() {
     var modal = document.getElementById('videoModal');
     var video = document.getElementById('modalVideo');
     modal.classList.remove('active');
