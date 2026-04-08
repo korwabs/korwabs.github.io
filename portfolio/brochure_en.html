@@ -449,10 +449,102 @@
 
 /* ── 프로젝트 카드 ── */
 .project-card {
-  padding: 28px;
+  padding: 0;
   display: flex;
   flex-direction: column;
+  gap: 0;
+  overflow: hidden;
+}
+
+.project-card__thumbnail ~ .project-card__header,
+.project-card__thumbnail ~ .project-card__title,
+.project-card__thumbnail ~ .project-card__desc,
+.project-card__thumbnail ~ .project-card__pas,
+.project-card__thumbnail ~ .project-card__metrics,
+.project-card__thumbnail ~ .project-card__tech,
+.project-card__thumbnail ~ .project-card__values,
+.project-card__thumbnail ~ .project-card__actions {
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.project-card__thumbnail ~ .project-card__header {
+  padding-top: 20px;
+}
+
+.project-card__thumbnail ~ .project-card__actions {
+  padding-bottom: 24px;
+}
+
+/* 썸네일이 없는 카드: 기존 패딩 유지 */
+.project-card:not(:has(.project-card__thumbnail)) {
+  padding: 28px;
   gap: 16px;
+}
+
+/* 썸네일이 있는 카드: 내부 요소 간격 */
+.project-card:has(.project-card__thumbnail) .project-card__header,
+.project-card:has(.project-card__thumbnail) .project-card__title,
+.project-card:has(.project-card__thumbnail) .project-card__desc,
+.project-card:has(.project-card__thumbnail) .project-card__pas,
+.project-card:has(.project-card__thumbnail) .project-card__metrics,
+.project-card:has(.project-card__thumbnail) .project-card__tech,
+.project-card:has(.project-card__thumbnail) .project-card__values {
+  margin-bottom: 12px;
+}
+
+.project-card:has(.project-card__thumbnail) .project-card__actions {
+  margin-top: 8px;
+}
+
+/* ── 비디오 썸네일 영역 ── */
+.project-card__thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.project-card__poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-card__poster {
+  transform: scale(1.03);
+}
+
+.project-card__play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.project-card:hover .project-card__play-overlay {
+  opacity: 0;
+}
+
+.project-card__play-overlay svg {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-card__play-overlay svg {
+  transform: scale(1.1);
 }
 
 .project-card__header {
@@ -595,6 +687,8 @@
 
 .video-modal__content video {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
   display: block;
 }
 
@@ -1007,8 +1101,24 @@
 
 /* ── 반응형 ── */
 @media (max-width: 768px) {
-  .project-card {
+  .project-card:not(:has(.project-card__thumbnail)) {
     padding: 20px;
+  }
+
+  .project-card__thumbnail ~ .project-card__header,
+  .project-card__thumbnail ~ .project-card__title,
+  .project-card__thumbnail ~ .project-card__desc,
+  .project-card__thumbnail ~ .project-card__pas,
+  .project-card__thumbnail ~ .project-card__metrics,
+  .project-card__thumbnail ~ .project-card__tech,
+  .project-card__thumbnail ~ .project-card__values,
+  .project-card__thumbnail ~ .project-card__actions {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .project-card__thumbnail ~ .project-card__actions {
+    padding-bottom: 20px;
   }
 
   .project-card__title {
@@ -1568,7 +1678,7 @@ body::before {
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       시연 영상
     </button>
-    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/cxp-saas.mp4" hidden></span>  </div>
+    <span class="video-url" data-video="videos/cxp-saas.mp4" hidden></span>  </div>
 
   <template class="project-detail-data">
     <div class="detail-name">CXP SaaS</div>
@@ -1582,7 +1692,7 @@ body::before {
     <div class="detail-metrics">      <div class="detail-metric" data-label="분석 시간 단축" data-value="90%+" data-icon="speed"></div>      <div class="detail-metric" data-label="지원 운송 수단" data-value="도로·항공·해상" data-icon="chart"></div>      <div class="detail-metric" data-label="리포트 형식" data-value="Excel/PDF" data-icon="chart"></div>    </div>
     <div class="detail-tech">      <span>Next.js 16</span>      <span>React 19</span>      <span>Tailwind CSS 4</span>      <span>Supabase</span>      <span>Google Gemini 2.5 Flash</span>      <span>Leaflet</span>      <span>Three.js</span>      <span>AWS EC2</span>      <span>Docker</span>    </div>
     <div class="detail-values">      <span>문제가 먼저다</span>      <span>끝까지 완성한다</span>    </div>
-    <div class="detail-video">https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/cxp-saas.mp4</div>
+    <div class="detail-video">videos/cxp-saas.mp4</div>
   </template>
 </div>
       <div class="project-card glass-card" data-project="enms" data-domain="에너지/제조">
@@ -1650,7 +1760,7 @@ body::before {
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       시연 영상
     </button>
-    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/enms.mp4" hidden></span>  </div>
+    <span class="video-url" data-video="videos/enms.mp4" hidden></span>  </div>
 
   <template class="project-detail-data">
     <div class="detail-name">ENMS</div>
@@ -1664,7 +1774,7 @@ body::before {
     <div class="detail-metrics">      <div class="detail-metric" data-label="실시간 모니터링" data-value="24/7" data-icon="speed"></div>      <div class="detail-metric" data-label="데이터 수집" data-value="IoT 센서" data-icon="chart"></div>      <div class="detail-metric" data-label="시각화" data-value="3D 메타버스" data-icon="globe"></div>    </div>
     <div class="detail-tech">      <span>React</span>      <span>TypeScript</span>      <span>Recharts</span>      <span>Spring Boot</span>      <span>InfluxDB</span>      <span>MariaDB</span>      <span>3D Metaverse</span>    </div>
     <div class="detail-values">      <span>문제가 먼저다</span>      <span>지속가능하게</span>    </div>
-    <div class="detail-video">https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/enms.mp4</div>
+    <div class="detail-video">videos/enms.mp4</div>
   </template>
 </div>
       <div class="project-card glass-card" data-project="harness-monitor" data-domain="AI/DevOps">
@@ -1731,7 +1841,7 @@ body::before {
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       시연 영상
     </button>
-    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/harness-monitor.mp4" hidden></span>  </div>
+    <span class="video-url" data-video="videos/harness-monitor.mp4" hidden></span>  </div>
 
   <template class="project-detail-data">
     <div class="detail-name">Harness Monitor</div>
@@ -1745,7 +1855,7 @@ body::before {
     <div class="detail-metrics">      <div class="detail-metric" data-label="관리 스킬 수" data-value="62+" data-icon="chart"></div>      <div class="detail-metric" data-label="자동 구성" data-value="3단계" data-icon="speed"></div>      <div class="detail-metric" data-label="아키텍처" data-value="4계층" data-icon="chart"></div>    </div>
     <div class="detail-tech">      <span>Next.js</span>      <span>TypeScript</span>      <span>Prisma</span>      <span>Gemini 2.5 Flash</span>      <span>Docker</span>    </div>
     <div class="detail-values">      <span>끝까지 완성한다</span>      <span>큰 그릇으로 담는다</span>    </div>
-    <div class="detail-video">https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/harness-monitor.mp4</div>
+    <div class="detail-video">videos/harness-monitor.mp4</div>
   </template>
 </div>
       <div class="project-card glass-card" data-project="meeting-assistant" data-domain="업무자동화">
@@ -1813,7 +1923,7 @@ body::before {
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       시연 영상
     </button>
-    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/meeting-assistant.mp4" hidden></span>  </div>
+    <span class="video-url" data-video="videos/meeting-assistant.mp4" hidden></span>  </div>
 
   <template class="project-detail-data">
     <div class="detail-name">Meeting Assistant</div>
@@ -1827,7 +1937,7 @@ body::before {
     <div class="detail-metrics">      <div class="detail-metric" data-label="파이프라인" data-value="6단계 AI" data-icon="speed"></div>      <div class="detail-metric" data-label="배포 옵션" data-value="Private/Hybrid/Cloud" data-icon="globe"></div>      <div class="detail-metric" data-label="GPU 가속" data-value="Triton Server" data-icon="chart"></div>    </div>
     <div class="detail-tech">      <span>FastAPI</span>      <span>NVIDIA Triton</span>      <span>NeMo Diarization</span>      <span>Whisper v3</span>      <span>GPT-4.1</span>      <span>Kubernetes</span>      <span>RabbitMQ</span>      <span>MinIO</span>      <span>MongoDB</span>      <span>Grafana</span>    </div>
     <div class="detail-values">      <span>문제가 먼저다</span>      <span>끝까지 완성한다</span>    </div>
-    <div class="detail-video">https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/meeting-assistant.mp4</div>
+    <div class="detail-video">videos/meeting-assistant.mp4</div>
   </template>
 </div>
       <div class="project-card glass-card" data-project="multi-ai-agent-system" data-domain="AI">
@@ -1895,7 +2005,7 @@ body::before {
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       시연 영상
     </button>
-    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/multi-ai-agent.mp4" hidden></span>  </div>
+    <span class="video-url" data-video="videos/multi-ai-agent.mp4" hidden></span>  </div>
 
   <template class="project-detail-data">
     <div class="detail-name">Multi-AI Agent System</div>
@@ -1909,7 +2019,7 @@ body::before {
     <div class="detail-metrics">      <div class="detail-metric" data-label="서브에이전트" data-value="6개 도메인" data-icon="chart"></div>      <div class="detail-metric" data-label="파이프라인" data-value="3단계" data-icon="speed"></div>      <div class="detail-metric" data-label="메모리 계층" data-value="3계층" data-icon="chart"></div>    </div>
     <div class="detail-tech">      <span>LangGraph</span>      <span>LangChain</span>      <span>OpenAI GPT-4o</span>      <span>FAISS</span>      <span>FastAPI</span>      <span>PostgreSQL</span>      <span>Docker</span>    </div>
     <div class="detail-values">      <span>큰 그릇으로 담는다</span>      <span>끝까지 완성한다</span>    </div>
-    <div class="detail-video">https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/multi-ai-agent.mp4</div>
+    <div class="detail-video">videos/multi-ai-agent.mp4</div>
   </template>
 </div>
     </div>
