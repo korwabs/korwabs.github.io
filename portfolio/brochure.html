@@ -498,12 +498,45 @@
   letter-spacing: 0.05em;
   color: var(--brand-secondary, #22d3ee);
   margin-right: 8px;
+  flex-shrink: 0;
 }
 
 .pas-text {
   font-size: 13px;
   color: var(--text-secondary, #a0a0b8);
   line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-card__problem,
+.project-card__solution {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* ── 프로젝트 카드 액션 버튼 그룹 ── */
+.project-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.project-card__actions .btn {
+  font-size: 13px;
+  padding: 8px 16px;
+}
+
+.project-detail-btn {
+  flex: 1;
+}
+
+.project-video-btn {
+  flex-shrink: 0;
 }
 
 .project-card__metrics {
@@ -523,13 +556,7 @@
   padding-top: 4px;
 }
 
-.project-card__video {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.project-card__video .btn { font-size: 13px; padding: 8px 16px; }
+/* (project-card__video 제거됨 — project-card__actions로 통합) */
 
 /* ── 비디오 모달 ── */
 .video-modal {
@@ -801,6 +828,183 @@
   color: var(--brand-secondary, #22d3ee);
 }
 
+/* ── 프로젝트 상세 모달 ── */
+.project-detail-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.project-detail-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.project-detail-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.project-detail-modal__content {
+  position: relative;
+  max-width: 720px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: var(--surface-primary, #0f0f1a);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 36px;
+  transform: scale(0.95) translateY(10px);
+  transition: transform 0.3s;
+}
+
+.project-detail-modal.active .project-detail-modal__content {
+  transform: scale(1) translateY(0);
+}
+
+.project-detail-modal__content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-detail-modal__content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.project-detail-modal__content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.project-detail-modal__close {
+  position: sticky;
+  top: 0;
+  float: right;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  color: var(--text-secondary, #a0a0b8);
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s, color 0.2s;
+}
+
+.project-detail-modal__close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary, #f0f0f5);
+}
+
+.detail-header {
+  margin-bottom: 24px;
+}
+
+.detail-header__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.detail-header__title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary, #f0f0f5);
+  margin-bottom: 8px;
+}
+
+.detail-header__desc {
+  font-size: 15px;
+  color: var(--text-secondary, #a0a0b8);
+  line-height: 1.7;
+}
+
+.detail-pas {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.detail-pas__block {
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--border-radius-default, 12px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.detail-pas__label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--brand-secondary, #22d3ee);
+  margin-bottom: 8px;
+}
+
+.detail-pas__label--problem { color: #f87171; }
+.detail-pas__label--agitation { color: #fbbf24; }
+.detail-pas__label--solution { color: #34d399; }
+.detail-pas__label--outcome { color: #60a5fa; }
+
+.detail-pas__text {
+  font-size: 14px;
+  color: var(--text-secondary, #a0a0b8);
+  line-height: 1.8;
+}
+
+.detail-section {
+  margin-bottom: 24px;
+}
+
+.detail-section__title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted, #6b6b80);
+  margin-bottom: 12px;
+}
+
+.detail-metrics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.detail-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.detail-values-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.detail-video-btn {
+  margin-top: 12px;
+}
+
+@media print { .project-detail-modal { display: none; } }
+
 /* ── 반응형 ── */
 @media (max-width: 768px) {
   .project-card {
@@ -814,6 +1018,20 @@
   .project-card__metrics {
     flex-direction: column;
     gap: 12px;
+  }
+
+  .project-card__actions {
+    flex-direction: column;
+  }
+
+  .project-detail-modal__content {
+    padding: 24px;
+    max-height: 90vh;
+    border-radius: 16px;
+  }
+
+  .detail-header__title {
+    font-size: 22px;
   }
 
   .team-card__photo {
@@ -1323,7 +1541,7 @@ body::before {
   <p class="project-card__desc">LCA 운송 경로 분석 플랫폼 — CSV 업로드부터 AI 경로 분석, 탄소 배출량 계산, 시각화 리포트까지</p>  <div class="project-card__pas">
     <div class="project-card__problem">
       <span class="pas-label">과제</span>
-      <span class="pas-text">물류 기업과 ESG 담당자가 운송 경로별 탄소 배출량을 수작업으로 계산하고 있어 데이터 처리에 시간이 과다하게 소요되고, 복합…</span>
+      <span class="pas-text">물류 기업과 ESG 담당자가 운송 경로별 탄소 배출량을 수작업으로 계산하고 있어 데이터 처리에 시간이 과다하게 소요되고, 복합 운송(도로·항공·해상) 경로의 구간별 분석이 사실상 불가능했음.</span>
     </div>
     <div class="project-card__solution">
       <span class="pas-label">해결</span>
@@ -1367,13 +1585,32 @@ body::before {
 
   </div>  <div class="project-card__values">    <span class="value-badge">문제가 먼저다</span>
     <span class="value-badge">끝까지 완성한다</span>
-  </div>  <div class="project-card__video">
-    <a href="#"
-   class="btn btn--ghost">  <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">    <polygon points="5 3 19 12 5 21 5 3"/>  </svg>  시연 영상 보기
-</a>
+  </div>
+  <div class="project-card__actions">
+    <button class="btn btn--ghost project-detail-btn" data-project="cxp-saas" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      자세히 보기
+    </button>    <button class="btn btn--ghost project-video-btn" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      시연 영상
+    </button>
+    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/cxp-saas.mp4" hidden></span>  </div>
 
-    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/cxp-saas.mp4" hidden></span>
-  </div></div>
+  <template class="project-detail-data">
+    <div class="detail-name">CXP SaaS</div>
+    <div class="detail-domain">물류/ESG</div>
+    <div class="detail-period">2025.12 - 2026.03</div>
+    <div class="detail-description">LCA 운송 경로 분석 플랫폼 — CSV 업로드부터 AI 경로 분석, 탄소 배출량 계산, 시각화 리포트까지</div>
+    <div class="detail-problem">물류 기업과 ESG 담당자가 운송 경로별 탄소 배출량을 수작업으로 계산하고 있어 데이터 처리에 시간이 과다하게 소요되고, 복합 운송(도로·항공·해상) 경로의 구간별 분석이 사실상 불가능했음. 국제 표준 배출 계수 적용도 일관성이 부족했음.</div>
+    <div class="detail-agitation">수작업 의존이 계속될수록 인적 오류와 비용이 누적됩니다</div>
+    <div class="detail-solution">Google Gemini 2.5 Flash AI를 활용한 자동 지오코딩 및 최적 운송 경로 분석 엔진을 개발. Next.js 16 + Supabase 기반 풀스택 SaaS로 CSV 대량 업로드 → AI 자동 분석 → 3D 지구본 시각화 → Excel/PDF 리포트 내보내기까지 올인원 파이프라인을 구축. 멀티테넌트 구조로 조직/프로젝트 단위 협업과 역할 기반 접근 제어를 지원.</div>
+    <div class="detail-outcome">운송 경로 분석 소요시간을 기존 수작업 대비 90% 이상 단축. 도로/항공/해상 복합 경로를 자동 분해하여 구간별 거리·배출량 계산을 제공. 국제 표준 배출 계수 적용으로 탄소 발자국 데이터의 정확성과 일관성을 확보. cxp.wabs.io로 서비스 배포 완료.</div>
+    <div class="detail-metrics">      <div class="detail-metric" data-label="분석 시간 단축" data-value="90%+" data-icon="speed"></div>      <div class="detail-metric" data-label="지원 운송 수단" data-value="도로·항공·해상" data-icon="chart"></div>      <div class="detail-metric" data-label="리포트 형식" data-value="Excel/PDF" data-icon="chart"></div>    </div>
+    <div class="detail-tech">      <span>Next.js 16</span>      <span>React 19</span>      <span>Tailwind CSS 4</span>      <span>Supabase</span>      <span>Google Gemini 2.5 Flash</span>      <span>Leaflet</span>      <span>Three.js</span>      <span>AWS EC2</span>      <span>Docker</span>    </div>
+    <div class="detail-values">      <span>문제가 먼저다</span>      <span>끝까지 완성한다</span>    </div>
+    <div class="detail-video">https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/cxp-saas.mp4</div>
+  </template>
+</div>
       <div class="project-card glass-card" data-project="enms" data-domain="에너지/제조">
   <div class="project-card__header">
     <span class="domain-badge" data-domain="에너지/제조">에너지/제조</span>
@@ -1390,7 +1627,7 @@ body::before {
     </div>
     <div class="project-card__solution">
       <span class="pas-label">해결</span>
-      <span class="pas-text">IoT 센서 기반 실시간 에너지 데이터 수집 체계를 구축하고, React 대시보드와 3D 메타버스 시각화를 통해 공장 에너지 흐름을 직관적으로…</span>
+      <span class="pas-text">IoT 센서 기반 실시간 에너지 데이터 수집 체계를 구축하고, React 대시보드와 3D 메타버스 시각화를 통해 공장 에너지 흐름을 직관적으로 표현.</span>
     </div>
   </div>  <div class="project-card__metrics">    <div class="metric">
   <div class="metric__icon metric__icon--speed">
@@ -1430,13 +1667,32 @@ body::before {
 
   </div>  <div class="project-card__values">    <span class="value-badge">문제가 먼저다</span>
     <span class="value-badge">지속가능하게</span>
-  </div>  <div class="project-card__video">
-    <a href="#"
-   class="btn btn--ghost">  <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">    <polygon points="5 3 19 12 5 21 5 3"/>  </svg>  시연 영상 보기
-</a>
+  </div>
+  <div class="project-card__actions">
+    <button class="btn btn--ghost project-detail-btn" data-project="enms" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      자세히 보기
+    </button>    <button class="btn btn--ghost project-video-btn" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      시연 영상
+    </button>
+    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/enms.mp4" hidden></span>  </div>
 
-    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/enms.mp4" hidden></span>
-  </div></div>
+  <template class="project-detail-data">
+    <div class="detail-name">ENMS</div>
+    <div class="detail-domain">에너지/제조</div>
+    <div class="detail-period">2025.06 - 2025.12</div>
+    <div class="detail-description">스마트팩토리 에너지 데이터 모니터링 및 3D 시각화 플랫폼 — 실시간 전력 감시부터 탄소 배출 분석, 메타버스 연동까지</div>
+    <div class="detail-problem">스마트팩토리의 에너지 소비를 실시간으로 모니터링하고 관리하는 체계가 부재하여 에너지 낭비를 사전에 감지할 수 없었음. 설비별 전력 사용량, 탄소 배출량, 에너지 흐름을 통합적으로 파악하는 것이 사실상 불가능했음.</div>
+    <div class="detail-agitation">시간 지연은 의사결정 병목과 경쟁력 저하로 이어집니다</div>
+    <div class="detail-solution">IoT 센서 기반 실시간 에너지 데이터 수집 체계를 구축하고, React 대시보드와 3D 메타버스 시각화를 통해 공장 에너지 흐름을 직관적으로 표현. InfluxDB 시계열 DB로 실시간 kW/kWh/kVAR 데이터를 저장하고, 임계치 기반 알람과 에너지 절감 인사이트를 제공.</div>
+    <div class="detail-outcome">공장 전체 에너지 소비를 실시간으로 모니터링하여 이상 패턴을 즉시 감지. 설비별 전력 사용량과 탄소 배출량을 자동 계산하여 ESG 리포트 데이터를 제공. 3D 메타버스 연동으로 비현장 인력도 공장 에너지 현황을 직관적으로 파악 가능.</div>
+    <div class="detail-metrics">      <div class="detail-metric" data-label="실시간 모니터링" data-value="24/7" data-icon="speed"></div>      <div class="detail-metric" data-label="데이터 수집" data-value="IoT 센서" data-icon="chart"></div>      <div class="detail-metric" data-label="시각화" data-value="3D 메타버스" data-icon="globe"></div>    </div>
+    <div class="detail-tech">      <span>React</span>      <span>TypeScript</span>      <span>Recharts</span>      <span>Spring Boot</span>      <span>InfluxDB</span>      <span>MariaDB</span>      <span>3D Metaverse</span>    </div>
+    <div class="detail-values">      <span>문제가 먼저다</span>      <span>지속가능하게</span>    </div>
+    <div class="detail-video">https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/enms.mp4</div>
+  </template>
+</div>
       <div class="project-card glass-card" data-project="harness-monitor" data-domain="AI/DevOps">
   <div class="project-card__header">
     <span class="domain-badge" data-domain="AI/DevOps">AI/DevOps</span>
@@ -1492,13 +1748,32 @@ body::before {
 
   </div>  <div class="project-card__values">    <span class="value-badge">끝까지 완성한다</span>
     <span class="value-badge">큰 그릇으로 담는다</span>
-  </div>  <div class="project-card__video">
-    <a href="#"
-   class="btn btn--ghost">  <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">    <polygon points="5 3 19 12 5 21 5 3"/>  </svg>  시연 영상 보기
-</a>
+  </div>
+  <div class="project-card__actions">
+    <button class="btn btn--ghost project-detail-btn" data-project="harness-monitor" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      자세히 보기
+    </button>    <button class="btn btn--ghost project-video-btn" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      시연 영상
+    </button>
+    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/harness-monitor.mp4" hidden></span>  </div>
 
-    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/harness-monitor.mp4" hidden></span>
-  </div></div>
+  <template class="project-detail-data">
+    <div class="detail-name">Harness Monitor</div>
+    <div class="detail-domain">AI/DevOps</div>
+    <div class="detail-period">2025.09 - 2026.01</div>
+    <div class="detail-description">AI 스킬 관리 대시보드 — 검색부터 시각화, 자동 구성, 오케스트레이션까지</div>
+    <div class="detail-problem">62개 이상의 AI 스킬을 체계적으로 관리하고 프로젝트에 최적 조합으로 매칭하는 것이 수작업으로는 비효율적이었음. 에이전트 오케스트레이션의 품질 관리와 실시간 모니터링 체계도 부재했음.</div>
+    <div class="detail-agitation">수작업 의존이 계속될수록 인적 오류와 비용이 누적됩니다</div>
+    <div class="detail-solution">Gemini 2.5 Flash 기반 자연어 AI 검색과 자동 스킬 구성 시스템을 개발. 프로젝트 분석 → AI 스킬 매칭 → 워크스페이스 생성의 3단계 자동화 파이프라인 구축. 4계층 Harness 아키텍처(Capability→Enforce→Orchestrator→Meta)로 계층적 품질 관리와 서브에이전트 오케스트레이션을 구현.</div>
+    <div class="detail-outcome">62개 이상 AI 스킬의 통합 관리와 자연어 검색을 실현. 프로젝트별 최적 스킬 조합을 AI가 자동 추천하여 구성 시간을 대폭 단축. 픽셀아트 오피스 시각화로 에이전트 활동 상태를 실시간 모니터링.</div>
+    <div class="detail-metrics">      <div class="detail-metric" data-label="관리 스킬 수" data-value="62+" data-icon="chart"></div>      <div class="detail-metric" data-label="자동 구성" data-value="3단계" data-icon="speed"></div>      <div class="detail-metric" data-label="아키텍처" data-value="4계층" data-icon="chart"></div>    </div>
+    <div class="detail-tech">      <span>Next.js</span>      <span>TypeScript</span>      <span>Prisma</span>      <span>Gemini 2.5 Flash</span>      <span>Docker</span>    </div>
+    <div class="detail-values">      <span>끝까지 완성한다</span>      <span>큰 그릇으로 담는다</span>    </div>
+    <div class="detail-video">https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/harness-monitor.mp4</div>
+  </template>
+</div>
       <div class="project-card glass-card" data-project="meeting-assistant" data-domain="업무자동화">
   <div class="project-card__header">
     <span class="domain-badge" data-domain="업무자동화">업무자동화</span>
@@ -1515,7 +1790,7 @@ body::before {
     </div>
     <div class="project-card__solution">
       <span class="pas-label">해결</span>
-      <span class="pas-text">6단계 AI 파이프라인을 구축: 음성 업로드(MinIO+RabbitMQ) → 오디오 전처리(FFmpeg) → 화자 분리(NeMo…</span>
+      <span class="pas-text">6단계 AI 파이프라인을 구축: 음성 업로드(MinIO+RabbitMQ) → 오디오 전처리(FFmpeg) → 화자 분리(NeMo Diarization+Triton) → 음성 인식(Whisper v3 한국어 STT) → AI 회의 요약(GPT-4.</span>
     </div>
   </div>  <div class="project-card__metrics">    <div class="metric">
   <div class="metric__icon metric__icon--speed">
@@ -1555,13 +1830,32 @@ body::before {
 
   </div>  <div class="project-card__values">    <span class="value-badge">문제가 먼저다</span>
     <span class="value-badge">끝까지 완성한다</span>
-  </div>  <div class="project-card__video">
-    <a href="#"
-   class="btn btn--ghost">  <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">    <polygon points="5 3 19 12 5 21 5 3"/>  </svg>  시연 영상 보기
-</a>
+  </div>
+  <div class="project-card__actions">
+    <button class="btn btn--ghost project-detail-btn" data-project="meeting-assistant" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      자세히 보기
+    </button>    <button class="btn btn--ghost project-video-btn" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      시연 영상
+    </button>
+    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/meeting-assistant.mp4" hidden></span>  </div>
 
-    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/meeting-assistant.mp4" hidden></span>
-  </div></div>
+  <template class="project-detail-data">
+    <div class="detail-name">Meeting Assistant</div>
+    <div class="detail-domain">업무자동화</div>
+    <div class="detail-period">2025.01 - 2025.06</div>
+    <div class="detail-description">GPU 기반 AI 회의록 자동화 솔루션 — 음성 업로드부터 화자 분리, STT, AI 요약, 이메일 전달까지</div>
+    <div class="detail-problem">회의록 작성에 과다한 시간이 소요되고, 화자 식별의 정확도가 낮아 수동 전사 작업이 불가피했음. 회의 내용의 구조화된 요약과 액션 아이템 추출, 관련자 전달까지의 프로세스가 비효율적이었음.</div>
+    <div class="detail-agitation">시간 지연은 의사결정 병목과 경쟁력 저하로 이어집니다</div>
+    <div class="detail-solution">6단계 AI 파이프라인을 구축: 음성 업로드(MinIO+RabbitMQ) → 오디오 전처리(FFmpeg) → 화자 분리(NeMo Diarization+Triton) → 음성 인식(Whisper v3 한국어 STT) → AI 회의 요약(GPT-4.1 토픽·액션아이템·요약) → 저장+이메일 전달(MongoDB). Kubernetes 기반 GPU 오케스트레이션으로 Private/Hybrid/Public Cloud 배포를 지원.</div>
+    <div class="detail-outcome">회의 녹음에서 구조화된 회의록까지 완전 자동화를 달성. NeMo+Whisper v3 조합으로 한국어 화자 분리와 음성 인식 정확도를 확보. GPU 가속과 Triton 추론 서버로 대규모 회의도 신속하게 처리.</div>
+    <div class="detail-metrics">      <div class="detail-metric" data-label="파이프라인" data-value="6단계 AI" data-icon="speed"></div>      <div class="detail-metric" data-label="배포 옵션" data-value="Private/Hybrid/Cloud" data-icon="globe"></div>      <div class="detail-metric" data-label="GPU 가속" data-value="Triton Server" data-icon="chart"></div>    </div>
+    <div class="detail-tech">      <span>FastAPI</span>      <span>NVIDIA Triton</span>      <span>NeMo Diarization</span>      <span>Whisper v3</span>      <span>GPT-4.1</span>      <span>Kubernetes</span>      <span>RabbitMQ</span>      <span>MinIO</span>      <span>MongoDB</span>      <span>Grafana</span>    </div>
+    <div class="detail-values">      <span>문제가 먼저다</span>      <span>끝까지 완성한다</span>    </div>
+    <div class="detail-video">https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/meeting-assistant.mp4</div>
+  </template>
+</div>
       <div class="project-card glass-card" data-project="multi-ai-agent-system" data-domain="AI">
   <div class="project-card__header">
     <span class="domain-badge" data-domain="AI">AI</span>
@@ -1574,11 +1868,11 @@ body::before {
   <p class="project-card__desc">LangGraph 기반 멀티스테이지 엔터프라이즈 AI 에이전트 시스템 — 3단계 파이프라인, 6개 도메인 서브에이전트</p>  <div class="project-card__pas">
     <div class="project-card__problem">
       <span class="pas-label">과제</span>
-      <span class="pas-text">복합 도메인 질의를 단일 에이전트로 처리하기 어려웠고, 계층적 메모리 관리, 도구 정의 유지보수, 효율적 요청 라우팅 등 엔터프라이즈 수준의…</span>
+      <span class="pas-text">복합 도메인 질의를 단일 에이전트로 처리하기 어려웠고, 계층적 메모리 관리, 도구 정의 유지보수, 효율적 요청 라우팅 등 엔터프라이즈 수준의 멀티에이전트 시스템 구축에 기술적 한계가 있었음.</span>
     </div>
     <div class="project-card__solution">
       <span class="pas-label">해결</span>
-      <span class="pas-text">LangGraph 기반 3단계 파이프라인(Foundation→Understanding→Behavior)을 설계하여 각 단계를 독립적으로…</span>
+      <span class="pas-text">LangGraph 기반 3단계 파이프라인(Foundation→Understanding→Behavior)을 설계하여 각 단계를 독립적으로 컴파일·테스트·배포 가능하게 구현.</span>
     </div>
   </div>  <div class="project-card__metrics">    <div class="metric">
   <div class="metric__icon metric__icon--chart">
@@ -1618,13 +1912,32 @@ body::before {
 
   </div>  <div class="project-card__values">    <span class="value-badge">큰 그릇으로 담는다</span>
     <span class="value-badge">끝까지 완성한다</span>
-  </div>  <div class="project-card__video">
-    <a href="#"
-   class="btn btn--ghost">  <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">    <polygon points="5 3 19 12 5 21 5 3"/>  </svg>  시연 영상 보기
-</a>
+  </div>
+  <div class="project-card__actions">
+    <button class="btn btn--ghost project-detail-btn" data-project="multi-ai-agent-system" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      자세히 보기
+    </button>    <button class="btn btn--ghost project-video-btn" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      시연 영상
+    </button>
+    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/multi-ai-agent.mp4" hidden></span>  </div>
 
-    <span class="video-url" data-video="https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/multi-ai-agent.mp4" hidden></span>
-  </div></div>
+  <template class="project-detail-data">
+    <div class="detail-name">Multi-AI Agent System</div>
+    <div class="detail-domain">AI</div>
+    <div class="detail-period">2025.03 - 2025.09</div>
+    <div class="detail-description">LangGraph 기반 멀티스테이지 엔터프라이즈 AI 에이전트 시스템 — 3단계 파이프라인, 6개 도메인 서브에이전트</div>
+    <div class="detail-problem">복합 도메인 질의를 단일 에이전트로 처리하기 어려웠고, 계층적 메모리 관리, 도구 정의 유지보수, 효율적 요청 라우팅 등 엔터프라이즈 수준의 멀티에이전트 시스템 구축에 기술적 한계가 있었음.</div>
+    <div class="detail-agitation">관리 체계 부재는 장기적으로 운영 비용 증가와 품질 저하를 초래합니다</div>
+    <div class="detail-solution">LangGraph 기반 3단계 파이프라인(Foundation→Understanding→Behavior)을 설계하여 각 단계를 독립적으로 컴파일·테스트·배포 가능하게 구현. Supervisor Agent가 6개 도메인별 서브에이전트(메일·일정·게시판·결재·협업·조직)를 오케스트레이션하고, 3계층 메모리(Working→Short-Term→Long-Term)로 문맥을 관리.</div>
+    <div class="detail-outcome">단일 POST /chat 엔드포인트로 인증 전파와 동적 스테이지 선택, 스트리밍을 지원. 도메인별 관심사 분리로 독립적 확장이 가능한 아키텍처를 확보. FAISS 기반 시맨틱 검색으로 대화 맥락의 정확도를 향상.</div>
+    <div class="detail-metrics">      <div class="detail-metric" data-label="서브에이전트" data-value="6개 도메인" data-icon="chart"></div>      <div class="detail-metric" data-label="파이프라인" data-value="3단계" data-icon="speed"></div>      <div class="detail-metric" data-label="메모리 계층" data-value="3계층" data-icon="chart"></div>    </div>
+    <div class="detail-tech">      <span>LangGraph</span>      <span>LangChain</span>      <span>OpenAI GPT-4o</span>      <span>FAISS</span>      <span>FastAPI</span>      <span>PostgreSQL</span>      <span>Docker</span>    </div>
+    <div class="detail-values">      <span>큰 그릇으로 담는다</span>      <span>끝까지 완성한다</span>    </div>
+    <div class="detail-video">https://gitlab.com/wabs.io/brochure/-/raw/main/assets/videos/multi-ai-agent.mp4</div>
+  </template>
+</div>
     </div>
   </div>
 </section>
