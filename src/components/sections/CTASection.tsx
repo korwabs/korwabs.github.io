@@ -28,7 +28,7 @@ const CTASection = () => {
 
   return (
     <Element name="contact">
-      <section className="py-24 relative overflow-hidden">
+      <section id="contact" className="py-24 relative overflow-hidden scroll-mt-20">
         <div className="container mx-auto px-6">
           <motion.div
             ref={containerRef}

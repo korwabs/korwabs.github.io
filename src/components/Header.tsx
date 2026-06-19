@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Link } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
@@ -27,11 +26,11 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", to: "hero" },
-    { name: "Solution", to: "solution" },
-    { name: "UseCase", to: "demo" },
-    { name: "Process", to: "process" },
-    { name: "Contact", to: "contact" },
+    { name: "Home", href: "#home" },
+    { name: "Solution", href: "#solution" },
+    { name: "UseCase", href: "#usecase" },
+    { name: "Process", href: "#process" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
@@ -49,7 +48,7 @@ const Header = () => {
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link to="hero" smooth duration={500} className="cursor-pointer">
+            <a href="#home" className="cursor-pointer" aria-label="WABS 홈으로 이동">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center gap-2"
@@ -65,23 +64,19 @@ const Header = () => {
                   WABS
                 </span>
               </motion.div>
-            </Link>
+            </a>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1">
               {navItems.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  smooth
-                  duration={500}
-                  spy={true}
-                  activeClass="text-primary-400"
-                  className="px-4 py-2 text-dark-300 hover:text-white font-medium cursor-pointer transition-colors relative group"
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="px-4 py-2 text-dark-300 hover:text-white focus:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-900 rounded-lg font-medium transition-colors relative group"
                 >
                   {item.name}
                   <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-secondary-500 group-hover:w-full transition-all duration-300" />
-                </Link>
+                </a>
               ))}
 
               {/* CTA Button */}
@@ -99,7 +94,9 @@ const Header = () => {
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden w-10 h-10 rounded-xl bg-dark-800/50 flex items-center justify-center text-white"
+              className="md:hidden w-10 h-10 rounded-xl bg-dark-800/50 flex items-center justify-center text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400"
+              aria-label={isMobileMenuOpen ? "모바일 메뉴 닫기" : "모바일 메뉴 열기"}
+              aria-expanded={isMobileMenuOpen}
             >
               <svg
                 className="w-6 h-6"
@@ -142,20 +139,18 @@ const Header = () => {
               <div className="flex flex-col gap-2">
                 {navItems.map((item, idx) => (
                   <motion.div
-                    key={item.to}
+                    key={item.href}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: idx * 0.05 }}
                   >
-                    <Link
-                      to={item.to}
-                      smooth
-                      duration={500}
+                    <a
+                      href={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="block px-4 py-3 text-dark-300 hover:text-white hover:bg-dark-700 rounded-xl font-medium cursor-pointer transition-colors"
+                      className="block px-4 py-3 text-dark-300 hover:text-white hover:bg-dark-700 focus:text-white focus:bg-dark-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 rounded-xl font-medium transition-colors"
                     >
                       {item.name}
-                    </Link>
+                    </a>
                   </motion.div>
                 ))}
 

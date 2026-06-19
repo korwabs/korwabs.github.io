@@ -14,7 +14,7 @@ const useCases = [
 const DemoSection = () => {
   return (
     <Element name="demo">
-      <section id="demo" className="py-24 relative">
+      <section id="usecase" className="py-24 relative scroll-mt-20">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div

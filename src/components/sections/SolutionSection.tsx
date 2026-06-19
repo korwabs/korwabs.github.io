@@ -90,7 +90,7 @@ const features = [
 const SolutionSection = () => {
   return (
     <Element name="solution">
-      <section className="py-24 relative">
+      <section id="solution" className="py-24 relative scroll-mt-20">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary-950/20 to-transparent" />
 
         <div className="container mx-auto px-6 relative z-10">

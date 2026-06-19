@@ -142,7 +142,7 @@ const ProcessStep = ({
 const ProcessSection = () => {
   return (
     <Element name="process">
-      <section className="py-24 relative overflow-hidden">
+      <section id="process" className="py-24 relative overflow-hidden scroll-mt-20">
         {/* Background decoration */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary-950/10 to-transparent" />
 

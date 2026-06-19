@@ -92,8 +92,9 @@ const HeroSection = ({ heroOpacity, heroScale }: HeroSectionProps) => {
   return (
     <Element name="hero">
       <motion.section
+        id="home"
         style={{ opacity: heroOpacity, scale: heroScale }}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20 scroll-mt-20"
         onMouseMove={handleMouseMove}
       >
         <ParticleBackground />
@@ -197,7 +198,7 @@ const HeroSection = ({ heroOpacity, heroScale }: HeroSectionProps) => {
                 무료 상담 신청
               </MagneticButton>
               <MagneticButton
-                href="#demo"
+                href="#usecase"
                 className="px-8 py-4 rounded-xl border border-white/20 text-white font-semibold text-lg hover:bg-white/5 transition-colors"
               >
                 더 알아보기
