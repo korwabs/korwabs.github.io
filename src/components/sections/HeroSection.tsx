@@ -92,8 +92,8 @@ const HeroSection = ({ heroOpacity, heroScale }: HeroSectionProps) => {
   return (
     <Element name="hero">
       <motion.section
-        id="home"
         style={{ opacity: heroOpacity, scale: heroScale }}
+        id="hero"
         className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20 scroll-mt-20"
         onMouseMove={handleMouseMove}
       >
@@ -148,7 +148,7 @@ const HeroSection = ({ heroOpacity, heroScale }: HeroSectionProps) => {
                 animate={{ opacity: [1, 0.7, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                AI Agent 도입 & 솔루션 개발 전문
+                조직 맞춤 AI Agent 시스템 구축
               </motion.span>
             </motion.span>
 
@@ -164,11 +164,11 @@ const HeroSection = ({ heroOpacity, heroScale }: HeroSectionProps) => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                비즈니스의 미래를
+                AI 모델보다 중요한
               </motion.span>
               <br />
               <TypewriterText
-                texts={["자동화하세요", "혁신하세요", "가속화하세요"]}
+                texts={["운영 루프를 만듭니다", "업무 지식을 연결합니다", "사람의 피드백을 학습합니다"]}
               />
             </motion.h1>
 
@@ -178,10 +178,9 @@ const HeroSection = ({ heroOpacity, heroScale }: HeroSectionProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              WABS는 기업 맞춤형 AI Agent를 설계, 개발, 운영합니다.
+              WABS는 내부 지식, 업무 흐름, 도구, 사람의 피드백을 연결해
               <br />
-              반복 업무 자동화부터 의사결정 지원까지, AI로 업무 효율을
-              극대화하세요.
+              조직 고유의 human-AI learning loop로 작동하는 AI Agent 시스템을 설계·구축·운영합니다.
             </motion.p>
 
             <motion.div
@@ -195,13 +194,13 @@ const HeroSection = ({ heroOpacity, heroScale }: HeroSectionProps) => {
                 isPrimary
                 className="glow-button px-8 py-4 rounded-xl text-white font-semibold text-lg"
               >
-                무료 상담 신청
+                우리 조직에 맞는 AI 루프 상담하기
               </MagneticButton>
               <MagneticButton
-                href="#usecase"
+                href="#proof"
                 className="px-8 py-4 rounded-xl border border-white/20 text-white font-semibold text-lg hover:bg-white/5 transition-colors"
               >
-                더 알아보기
+                구현 사례 보기
               </MagneticButton>
             </motion.div>
 

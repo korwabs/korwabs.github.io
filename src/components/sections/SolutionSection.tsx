@@ -21,9 +21,9 @@ const features = [
         />
       </svg>
     ),
-    title: "업무 자동화",
+    title: "워크플로 자동화",
     description:
-      "반복적인 업무를 AI가 대신 처리합니다. 데이터 입력, 보고서 작성, 이메일 응대까지 자동으로.",
+      "반복 업무뿐 아니라 승인, 보고, 알림처럼 여러 도구를 오가는 업무 흐름을 AI Agent로 연결합니다.",
   },
   {
     icon: (
@@ -41,9 +41,9 @@ const features = [
         />
       </svg>
     ),
-    title: "실시간 분석",
+    title: "지식 연결과 분석",
     description:
-      "비즈니스 데이터를 실시간으로 분석하고 인사이트를 제공합니다. 의사결정을 더 빠르게.",
+      "내부 문서, 데이터, 운영 로그를 연결해 조직 맥락에 맞는 근거와 인사이트를 제공합니다.",
   },
   {
     icon: (
@@ -61,9 +61,9 @@ const features = [
         />
       </svg>
     ),
-    title: "맞춤형 개발",
+    title: "조직 맞춤 Agent 개발",
     description:
-      "기업 환경에 맞는 커스텀 AI Agent를 개발합니다. 기존 시스템과 완벽하게 통합.",
+      "기업 환경에 맞는 커스텀 AI Agent를 개발하고 기존 시스템·권한·배포 환경과 통합합니다.",
   },
   {
     icon: (
@@ -81,9 +81,9 @@ const features = [
         />
       </svg>
     ),
-    title: "안정적인 운영",
+    title: "피드백 기반 운영",
     description:
-      "체계적인 모니터링과 유지보수로 안정적인 서비스 운영을 지원합니다.",
+      "사람의 검토와 피드백을 운영 루프에 반영해 Agent가 실제 업무에 맞게 개선되도록 지원합니다.",
   },
 ];
 
@@ -105,12 +105,12 @@ const SolutionSection = () => {
               Solution
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              WABS가 <span className="gradient-text">해결</span>해 드립니다
+              WABS는 <span className="gradient-text">AI 운영 루프</span>를 만듭니다
             </h2>
             <p className="text-dark-400 text-lg max-w-2xl mx-auto">
-              풍부한 엔터프라이즈 개발 경험과 최신 AI 기술을 결합하여
+              AI 모델 자체보다 중요한 것은 귀사의 지식, 업무 흐름, 도구, 사람의 피드백이
               <br />
-              귀사에 딱 맞는 AI Agent 솔루션을 제공합니다.
+              함께 개선되는 구조입니다. WABS는 이 구조를 실제 시스템으로 구현합니다.
             </p>
           </motion.div>
 

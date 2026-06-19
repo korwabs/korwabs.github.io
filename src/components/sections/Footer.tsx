@@ -12,7 +12,7 @@ const Footer = () => {
   ];
 
   const companyLinks = [
-    { label: "About Us", href: "#home" },
+    { label: "About Us", href: "#hero" },
     { label: "Contact", href: "#contact" },
   ];
 

@@ -5,6 +5,7 @@ import {
   HeroSection,
   ProblemSection,
   SolutionSection,
+  ProofSection,
   DemoSection,
   ProcessSection,
   CTASection,
@@ -21,6 +22,7 @@ export default function Main() {
       <HeroSection heroOpacity={heroOpacity} heroScale={heroScale} />
       <ProblemSection />
       <SolutionSection />
+      <ProofSection />
       <DemoSection />
       <ProcessSection />
       <CTASection />

@@ -76,9 +76,9 @@ const CTASection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                AI Agent 도입,
+                우리 조직의 AI 운영 루프,
                 <br />
-                <span className="gradient-text">지금 시작하세요</span>
+                <span className="gradient-text">어디서 시작할지 함께 찾겠습니다</span>
               </motion.h2>
 
               <motion.p
@@ -88,9 +88,9 @@ const CTASection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                무료 상담을 통해 귀사에 맞는 AI Agent 도입 전략을 제안받으세요.
+                현재 업무 흐름과 데이터, 사람이 검토해야 할 지점을 함께 분석해
                 <br />
-                전문 컨설턴트가 친절하게 안내해 드립니다.
+                실제 운영에 붙일 수 있는 AI Agent 도입 경로를 제안합니다.
               </motion.p>
 
               <motion.a
@@ -126,7 +126,7 @@ const CTASection = () => {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </motion.svg>
-                <span className="relative z-10">무료 상담 신청</span>
+                <span className="relative z-10">AI Agent 도입 상담하기</span>
               </motion.a>
             </div>
 
