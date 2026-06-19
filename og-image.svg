@@ -1,0 +1,13 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">WABS social preview</title>
+  <desc id="desc">WABS builds AI Agent systems for organization-specific human-AI learning loops.</desc>
+  <rect width="1200" height="630" fill="#08111F"/>
+  <circle cx="1000" cy="120" r="280" fill="#1F6FEB" opacity="0.22"/>
+  <circle cx="190" cy="520" r="240" fill="#34D399" opacity="0.14"/>
+  <path d="M90 96H1110V534H90V96Z" stroke="#D7E3F4" stroke-opacity="0.14" stroke-width="2"/>
+  <text x="120" y="190" fill="#F8FAFC" font-family="Inter, Pretendard, Arial, sans-serif" font-size="76" font-weight="800" letter-spacing="-2">WABS</text>
+  <text x="120" y="280" fill="#E2E8F0" font-family="Inter, Pretendard, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="-1.2">Build the AI operating loop</text>
+  <text x="120" y="350" fill="#E2E8F0" font-family="Inter, Pretendard, Arial, sans-serif" font-size="48" font-weight="700" letter-spacing="-1.2">your organization needs.</text>
+  <text x="120" y="432" fill="#AFC1D8" font-family="Inter, Pretendard, Arial, sans-serif" font-size="28" font-weight="500">Company-specific AI Agent systems connected to</text>
+  <text x="120" y="472" fill="#AFC1D8" font-family="Inter, Pretendard, Arial, sans-serif" font-size="28" font-weight="500">knowledge, workflows, tools, and human feedback.</text>
+</svg>
