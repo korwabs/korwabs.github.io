@@ -5,9 +5,41 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const siteUrl = "https://www.wabs.io";
+const title = "WABS | 조직 맞춤 AI Agent 시스템과 Human-AI Learning Loop";
+const description =
+  "WABS는 기업의 내부 지식, 업무 흐름, 도구, 사람의 피드백을 연결해 조직 고유의 AI Agent 시스템과 human-AI learning loop를 설계·구축·운영합니다.";
+
 export const metadata: Metadata = {
-  title: "WABS - AI Agent 도입 & 솔루션 개발 전문",
-  description: "WABS는 기업 맞춤형 AI Agent를 설계, 개발, 운영합니다. 반복 업무 자동화부터 의사결정 지원까지, AI로 업무 효율을 극대화하세요.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "WABS | 조직 맞춤 AI Agent 시스템",
+    description:
+      "기업의 지식과 워크플로, 도구, 사람의 피드백을 연결해 실제 운영에 쓰이는 AI Agent 시스템을 구축합니다.",
+    url: siteUrl,
+    siteName: "WABS",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "WABS - AI Agent systems for organization-specific human-AI learning loops",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WABS | 조직 맞춤 AI Agent 시스템",
+    description:
+      "조직의 지식, 워크플로, 도구, 피드백을 연결하는 AI Agent 시스템을 설계·구축·운영합니다.",
+    images: ["/og-image.svg"],
+  },
 };
 
 export default function RootLayout({
