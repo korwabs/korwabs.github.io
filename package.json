@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "predeploy": "npm run build",
+    "check:portfolio-assets": "node scripts/check-portfolio-assets.js",
+    "predeploy": "npm run build && npm run check:portfolio-assets",
     "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
     "start": "next start",
     "lint": "next lint"
