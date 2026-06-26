@@ -2,51 +2,49 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import {
+  appendNextMessage,
+  demoConversation,
+  type ChatMessage,
+} from "./chatDemoState";
 
 const ChatDemo = () => {
-  const [messages, setMessages] = useState<
-    Array<{ role: "user" | "agent"; text: string }>
-  >([]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isTyping, setIsTyping] = useState(false);
 
-  const demoConversation = [
-    { role: "user" as const, text: "이번 분기 매출 보고서 작성해줘" },
-    {
-      role: "agent" as const,
-      text: "네, 이번 분기 매출 데이터를 분석하고 있습니다. 전분기 대비 23% 성장했으며, 주요 성장 동력은 신규 고객 유치입니다. 보고서를 생성할까요?",
-    },
-    { role: "user" as const, text: "응, PDF로 만들어줘" },
-    {
-      role: "agent" as const,
-      text: "완료했습니다! Q4 매출 보고서.pdf 파일이 생성되었습니다. 경영진 미팅 전에 검토하실 수 있도록 이메일로도 전송해드릴까요?",
-    },
-  ];
+  useEffect(() => {
+    const stepTimeout = setTimeout(
+      () => {
+        if (messages.length >= demoConversation.length) {
+          setIsTyping(false);
+          setMessages([]);
+          return;
+        }
 
-  const simulateChat = () => {
-    if (messages.length >= demoConversation.length) {
-      setMessages([]);
+        setIsTyping(true);
+        setMessages((prev) => appendNextMessage(prev));
+      },
+      messages.length === 0
+        ? 500
+        : messages.length >= demoConversation.length
+          ? 3000
+          : 2500,
+    );
+
+    return () => clearTimeout(stepTimeout);
+  }, [messages.length]);
+
+  useEffect(() => {
+    if (!isTyping) {
       return;
     }
 
-    setIsTyping(true);
-    setTimeout(() => {
-      setMessages((prev) => [...prev, demoConversation[prev.length]]);
+    const typingTimeout = setTimeout(() => {
       setIsTyping(false);
-    }, 1000);
-  };
+    }, 700);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (messages.length < demoConversation.length) {
-        simulateChat();
-      } else {
-        setTimeout(() => setMessages([]), 3000);
-      }
-    }, 2500);
-
-    return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [messages.length]);
+    return () => clearTimeout(typingTimeout);
+  }, [isTyping]);
 
   return (
     <div className="glass-card rounded-2xl p-6 max-w-md mx-auto">

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "test:chat-demo": "node scripts/test-chat-demo-state.js",
     "check:portfolio-assets": "node scripts/check-portfolio-assets.js",
     "predeploy": "npm run build && npm run check:portfolio-assets",
     "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
