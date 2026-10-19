@@ -23,9 +23,9 @@ const projects = [
     category: "AI Agent",
     title: "Multi-AI Agent System",
     summary:
-      "LangGraph 기반 멀티스테이지 엔터프라이즈 AI 에이전트 시스템 — 복합 도메인 질의를 3단계 파이프라인과 6개 서브에이전트로 처리합니다.",
-    proof: ["6개 도메인 서브에이전트", "3단계 파이프라인", "3계층 메모리 계층"],
-    stack: ["LangGraph", "LangChain", "FAISS", "FastAPI"],
+      "그룹웨어 업무를 대화로 처리하는 엔터프라이즈 멀티 에이전트 — 10개 업무 에이전트와 45개 도구에 개인화 추천과 워크플로우 자동화를 더했습니다.",
+    proof: ["10개 업무 에이전트", "45개 업무 도구", "기본 워크플로우 5종 + 커스텀"],
+    stack: ["LangGraph", "deepagents", "Azure OpenAI", "pgvector"],
   },
 ];
 

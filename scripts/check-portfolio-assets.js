@@ -14,6 +14,7 @@ const requiredFiles = [
   'portfolio/thumbnails/enms.jpg',
   'portfolio/thumbnails/harness-monitor.jpg',
   'portfolio/thumbnails/lamda.jpg',
+  'portfolio/thumbnails/luna.jpg',
   'portfolio/thumbnails/meeting-assistant.jpg',
   'portfolio/thumbnails/multi-ai-agent-system.jpg',
   'portfolio/thumbnails/multi-ai-agent.jpg',
