@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Element } from "react-scroll";
-import { ChatDemo } from "@/components/ui";
+import { ChatDemo, ChatDemoFallback, ErrorBoundary } from "@/components/ui";
 
 const useCases = [
   "반복적인 데이터 입력 및 정리 작업",
@@ -74,7 +74,10 @@ const DemoSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <ChatDemo />
+              {/* 데모에서 오류가 나도 페이지 전체가 멈추지 않도록 이 영역에 가둔다 */}
+              <ErrorBoundary name="ChatDemo" fallback={<ChatDemoFallback />}>
+                <ChatDemo />
+              </ErrorBoundary>
             </motion.div>
           </div>
         </div>
