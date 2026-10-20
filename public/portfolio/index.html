@@ -87,6 +87,8 @@
   --text-light-primary: #1a1a2e;
   /* 라이트모드 보조 텍스트 */
   --text-light-secondary: #64748b;
+  /* 다크모드 3차 텍스트(라벨·기간·저작권) — 페이지·카드·패널 배경 모두 4.5:1 이상 */
+  --text-muted: #9090a8;
   /* 다크모드 기본 텍스트 */
   --text-primary: #f0f0f5;
   /* 다크모드 보조 텍스트 */
@@ -107,16 +109,6 @@
   --typography-line-height-normal: 1.6;
   --typography-line-height-relaxed: 1.7;
   --typography-line-height-tight: 1.2;
-}
-
-/* Light mode overrides */
-@media (prefers-color-scheme: light) {
-  :root {
-    --glass-card-bg: rgba(0,0,0,0.03);
-    --surface-dark: #f8fafc;
-    --text-primary: #1a1a2e;
-    --text-secondary: #64748b;
-  }
 }
 
 
@@ -1430,6 +1422,11 @@ body::before {
 <style>
   /* ABLE Landing Page CSS — 7섹션 싱글페이지 웹 */
 
+/* 랜딩은 다크 전용 — 스크롤바·입력창 같은 브라우저 기본 요소도 다크로 그린다 */
+:root {
+  color-scheme: dark;
+}
+
 /* ── 네비게이션 바 ── */
 .landing-nav {
   position: fixed;
@@ -1620,6 +1617,12 @@ html[lang="en"] .domain-rotator__item { width: auto; left: 0; right: 0; }
   letter-spacing: 0.02em;
 }
 
+/* ── 도메인 배지 글자 — 프로젝트 색에 흰색 30%를 섞어 어두운 배경에서 4.5:1 이상 ──
+   (DAGEN #6366f1 원색은 카드 배경에서 4.1:1. color-mix 를 모르는 브라우저는 atoms.css 의 원색을 쓴다) */
+.domain-badge {
+  color: color-mix(in srgb, var(--project-accent, var(--brand-primary)) 70%, #ffffff);
+}
+
 /* ── 포트폴리오 필터링 트랜지션 ── */
 .portfolio-grid .project-card {
   transition: opacity 0.3s, transform 0.3s;
@@ -1688,7 +1691,7 @@ html[lang="en"] .domain-rotator__item { width: auto; left: 0; right: 0; }
   top: -100%;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--brand-primary, #0ea5e9);
+  background: #0369a1; /* 흰 글자 5.9:1 — brand-primary(#0ea5e9)는 2.8:1 */
   color: #fff;
   padding: 12px 24px;
   border-radius: 0 0 8px 8px;
