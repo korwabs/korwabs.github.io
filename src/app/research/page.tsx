@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
+import NeuralBrain from "@/components/research/NeuralBrain";
 
 export const metadata: Metadata = {
   title: "WABS R&D | Novan — 세상과 부딪치며 스스로 배우는 디지털 지능",
@@ -76,7 +77,8 @@ export default function ResearchPage() {
         {/* Hero */}
         <section className="relative pt-36 pb-24 md:pt-44 md:pb-32 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_20%,rgba(64,196,206,0.18),transparent_55%)]" aria-hidden="true" />
-          <div className="container mx-auto px-6 relative max-w-5xl">
+          <div className="container mx-auto px-6 relative max-w-6xl lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] lg:items-center lg:gap-6">
+            <div className="relative z-10">
             <p className="text-secondary-400 font-semibold tracking-[0.2em] text-sm mb-6">WABS R&amp;D</p>
             <h1 className="text-6xl md:text-8xl font-bold mb-6">Novan</h1>
             <p className="text-2xl md:text-4xl font-semibold leading-snug mb-8 text-dark-100">
@@ -93,6 +95,11 @@ export default function ResearchPage() {
               <a href="mailto:wabs@wabs.io?subject=Novan%20연구%20협력%C2%B7투자%20문의" className="px-6 py-3 rounded-xl border border-white/20 text-dark-100 hover:bg-white/5 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary-300">
                 연구 협력·투자 문의
               </a>
+            </div>
+            </div>
+            <div className="relative mt-12 lg:mt-0 h-[300px] sm:h-[400px] lg:h-[560px] -mx-6 lg:mx-0">
+              <div className="absolute inset-[12%] rounded-full bg-[radial-gradient(circle,rgba(64,196,206,0.16),transparent_70%)] blur-2xl" aria-hidden="true" />
+              <NeuralBrain className="absolute inset-0" />
             </div>
           </div>
         </section>

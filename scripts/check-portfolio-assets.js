@@ -30,6 +30,7 @@ const requiredFiles = [
   'portfolio/videos/wabstoa.mp4',
   'research/novan-vision.mp4',
   'research/novan-vision-poster.jpg',
+  'research/novan-brain.bin',
 ];
 
 const roots = ['public', 'out'];
