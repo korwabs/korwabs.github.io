@@ -19,6 +19,7 @@ const requiredFiles = [
   'portfolio/thumbnails/multi-ai-agent-system.jpg',
   'portfolio/thumbnails/multi-ai-agent.jpg',
   'portfolio/thumbnails/wabs-logo-sm.png',
+  'portfolio/thumbnails/wabstoa.jpg',
   'portfolio/videos/cxp-saas.mp4',
   'portfolio/videos/dagen.mp4',
   'portfolio/videos/enms.mp4',
@@ -26,6 +27,7 @@ const requiredFiles = [
   'portfolio/videos/lamda.mp4',
   'portfolio/videos/meeting-assistant.mp4',
   'portfolio/videos/multi-ai-agent.mp4',
+  'portfolio/videos/wabstoa.mp4',
 ];
 
 const roots = ['public', 'out'];
@@ -55,6 +57,7 @@ for (const htmlFile of ['public/portfolio/index.html', 'out/portfolio/index.html
     'videos/lamda.mp4',
     'videos/meeting-assistant.mp4',
     'videos/multi-ai-agent.mp4',
+    'videos/wabstoa.mp4',
   ]) {
     if (!html.includes(video)) {
       missing.push(`${htmlFile} reference to ${video}`);
