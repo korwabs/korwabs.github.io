@@ -25,13 +25,15 @@ const Header = () => {
     };
   }, []);
 
+  // 홈이 아닌 페이지(R&D)에서도 섹션 링크가 홈으로 돌아가도록 "/#..." 형태를 쓴다
   const navItems = [
-    { name: "Home", href: "#hero" },
-    { name: "Solution", href: "#solution" },
-    { name: "Proof", href: "#proof" },
-    { name: "UseCase", href: "#usecase" },
-    { name: "Process", href: "#process" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/#hero" },
+    { name: "Solution", href: "/#solution" },
+    { name: "Proof", href: "/#proof" },
+    { name: "UseCase", href: "/#usecase" },
+    { name: "Process", href: "/#process" },
+    { name: "R&D", href: "/research/" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
@@ -49,7 +51,7 @@ const Header = () => {
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <a href="#hero" className="cursor-pointer" aria-label="WABS 홈으로 이동">
+            <a href="/#hero" className="cursor-pointer" aria-label="WABS 홈으로 이동">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 className="flex items-center gap-2"

@@ -28,6 +28,8 @@ const requiredFiles = [
   'portfolio/videos/meeting-assistant.mp4',
   'portfolio/videos/multi-ai-agent.mp4',
   'portfolio/videos/wabstoa.mp4',
+  'research/novan-vision.mp4',
+  'research/novan-vision-poster.jpg',
 ];
 
 const roots = ['public', 'out'];
